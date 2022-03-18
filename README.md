@@ -20,5 +20,5 @@ Here are some ideas to get you started:
 
 - :orange_book: Focusing on minecraft development and openwrt
 - :ram: Founder the Paperbox McServer
-- :meat_on_bone: Candy lover
-- :meat_on_bone: QQ:2221121757
+- :candy: Candy lover
+- :hammer: QQ:2221121757
