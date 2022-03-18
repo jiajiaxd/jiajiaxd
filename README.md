@@ -1,4 +1,4 @@
-### Hi there 👋
+
 
 <!--
 **jiajiaxd/jiajiaxd** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -16,8 +16,9 @@ Here are some ideas to get you started:
 -->
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=jiajiaxd&show_icons=true&icon_color=CE1D2D&text_color=718096&bg_color=ffffff&hide_title=true" />
 
-### 你好，世界 👋
+### Hello,World. 👋
 
 - :orange_book: Focusing on minecraft development and openwrt
 - :ram: Founder the Paperbox McServer
 - :meat_on_bone: Candy lover
+- :meat_on_bone: QQ:2221121757
