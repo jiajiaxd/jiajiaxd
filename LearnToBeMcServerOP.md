@@ -6,9 +6,9 @@
 需要掌握理解：/lp group及所有子命令
 需要掌握：/lp editor命令
 ## 学习方法、资源：
-链接：LuckPerms # Minecraft插件百科 (mineplugin.org)
-注意：不需要全部学完，否则非常难！
-你只需要学习：
+链接：https://mineplugin.org/LuckPerms
+注意：不需要全部学完，否则非常难！  
+你只需要学习以下章节：
  ![image](https://user-images.githubusercontent.com/51043917/166195235-cf8e2577-57b7-4b94-a3d6-ba7b7f032382.png)
 
 ## 课时作业：
