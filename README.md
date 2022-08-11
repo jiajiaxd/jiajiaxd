@@ -1,4 +1,4 @@
-### 你好。👋
+### 你好👋
 
 - :satellite: QQ:2221121757
 <div align="left"> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jiajiaxd&hide_title=true&hide_border=true&layout=compact&langs_count=6&text_color=000&icon_color=fff&bg_color=ffffff&theme=graywhite" /> </div>
