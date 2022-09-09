@@ -29,10 +29,6 @@ def editvideo():
                             fps=24, remove_temp=False)
 
 if __name__ == '__main__':
-    os.system("pip config set global.trusted-host mirrors.aliyun.com ")
-    os.system(
-        "pip config set global.index-url http://mirrors.aliyun.com/pypi/simple/")
-    os.system("pip install -r requirements.txt")
     response = requests.get(
         "https://api.cntv.cn/lanmu/columnSearch?&fl=&fc=%E6%96%B0%E9%97%BB&cid=&p=1&n=20&serviceId=tvcctv&t=jsonp&cb"
         "=Callback")
