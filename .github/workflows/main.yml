@@ -20,6 +20,10 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
+    
+    - name: 环境搭建
+      run: |
+        pip install -r requirements.txt
 
     - name: 生成今日环球视频
       run: |
