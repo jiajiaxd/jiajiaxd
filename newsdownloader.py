@@ -27,7 +27,7 @@ def editvideo():
     final_clip = concatenate_videoclips(L)
 
     # 生成目标视频文件
-    final_clip.to_videofile("newsdownloader//targets//"+videotitle+".mp4",
+    final_clip.to_videofile("newsdownloader//targets//target.mp4",
                             fps=24, remove_temp=False)
 
 
@@ -42,3 +42,4 @@ if __name__ == '__main__':
     print("获取到", videotitle, res.get('videoUrl'))
     os.system("you-get -n -o newsdownloader "+res.get('videoUrl'))
     editvideo()
+    os.rename("newsdownloader//targets//target.mp4","newsdownloader//targets//"+videotitle+".mp4")
