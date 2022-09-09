@@ -7,7 +7,7 @@ from natsort import natsorted
 
 def editvideo():
     L = []
-    for root, dirs, files in os.walk("newsplayer"):
+    for root, dirs, files in os.walk("newsdownloader"):
         # 按文件名排序
         files = natsorted(files)
         # 遍历所有文件
@@ -25,7 +25,7 @@ def editvideo():
     final_clip = concatenate_videoclips(L)
 
     # 生成目标视频文件
-    final_clip.to_videofile("newsplayer\\target.mp4",
+    final_clip.to_videofile("newsdownloader\\target.mp4",
                             fps=24, remove_temp=False)
 
 if __name__ == '__main__':
@@ -35,5 +35,5 @@ if __name__ == '__main__':
     res = json.loads(response.text.removeprefix('Callback(').removesuffix(');'))
     res = res.get('response').get("docs")[14].get('lastVIDE')
     print("获取到", res.get('videoTitle'), res.get('videoUrl'))
-    os.system("you-get -n -o newsplayer "+res.get('videoUrl'))
+    os.system("you-get -n -o newsdownloader "+res.get('videoUrl'))
     editvideo()
