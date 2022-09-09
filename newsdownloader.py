@@ -27,6 +27,7 @@ def editvideo():
     final_clip = concatenate_videoclips(L)
 
     # 生成目标视频文件
+    os.mkdir("newsdownloader//targets//")
     final_clip.to_videofile("newsdownloader//targets//target.mp4",
                             fps=24, remove_temp=False)
 
