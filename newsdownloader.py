@@ -1,9 +1,11 @@
 import requests
 import json
-import os
 from moviepy.editor import *
 import os
 from natsort import natsorted
+
+videotitle = ''
+
 
 def editvideo():
     L = []
@@ -25,15 +27,18 @@ def editvideo():
     final_clip = concatenate_videoclips(L)
 
     # 生成目标视频文件
-    final_clip.to_videofile("newsdownloader//target.mp4",
+    final_clip.to_videofile("newsdownloader//targets//"+videotitle+".mp4",
                             fps=24, remove_temp=False)
+
 
 if __name__ == '__main__':
     response = requests.get(
         "https://api.cntv.cn/lanmu/columnSearch?&fl=&fc=%E6%96%B0%E9%97%BB&cid=&p=1&n=20&serviceId=tvcctv&t=jsonp&cb"
         "=Callback")
-    res = json.loads(response.text.removeprefix('Callback(').removesuffix(');'))
+    res = json.loads(response.text.removeprefix(
+        'Callback(').removesuffix(');'))
     res = res.get('response').get("docs")[14].get('lastVIDE')
-    print("获取到", res.get('videoTitle'), res.get('videoUrl'))
+    videotitle = res.get('videoTitle')
+    print("获取到", videotitle, res.get('videoUrl'))
     os.system("you-get -n -o newsdownloader "+res.get('videoUrl'))
     editvideo()
