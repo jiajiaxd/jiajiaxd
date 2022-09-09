@@ -33,12 +33,12 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: 今日环球
-        path: newsplayer/target.mp4
+        path: newsdownloader/target.mp4
 
     - name: Upload to WeTransfer
       id: wetransfer
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress newsplayer/target.mp4 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress newsdownloader/target.mp4 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
