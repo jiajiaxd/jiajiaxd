@@ -33,7 +33,7 @@ if __name__ == '__main__':
         "https://api.cntv.cn/lanmu/columnSearch?&fl=&fc=%E6%96%B0%E9%97%BB&cid=&p=1&n=20&serviceId=tvcctv&t=jsonp&cb"
         "=Callback")
     res = json.loads(response.text.removeprefix('Callback(').removesuffix(');'))
-    res = res.get('response').get("docs")[10].get('lastVIDE')
+    res = res.get('response').get("docs")[14].get('lastVIDE')
     print("获取到", res.get('videoTitle'), res.get('videoUrl'))
     os.system("you-get -n -o newsdownloader "+res.get('videoUrl'))
     editvideo()
