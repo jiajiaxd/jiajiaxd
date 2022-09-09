@@ -29,7 +29,7 @@ jobs:
       run: |
         python newsdownloader.py
 
-    - name: Upload firmware directory
+    - name: Upload video
       uses: actions/upload-artifact@main
       with:
         name: 今日环球
