@@ -1,0 +1,40 @@
+name: Build OpenWrt
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 4 * * *
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+
+    - name: 生成今日环球视频
+      run: |
+        python newsdownloader.py
+
+    - name: Upload firmware directory
+      uses: actions/upload-artifact@main
+      with:
+        name: 今日环球
+        path: newsplayer/target.mp4
+
+    - name: Upload to WeTransfer
+      id: wetransfer
+      run: |
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer wet -s -p 16 --no-progress newsplayer/target.mp4 2>&1 | tee wetransfer.log
+        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
+        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
