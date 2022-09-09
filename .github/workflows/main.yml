@@ -1,4 +1,4 @@
-name: Build OpenWrt
+name: 今日环球下载器
 
 on:
   repository_dispatch:
