@@ -33,21 +33,21 @@ jobs:
     - name: 生成今日环球视频
       run: |
         python newsdownloader.py
+        
+    - name: Upload to WeTransfer
+      id: wetransfer
+      run: |
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer wet -s -p 16 --no-progress newsdownloader/targets/*.mp4 2>&1 | tee wetransfer.log
+        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
+        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
 
     - name: Upload video
       uses: actions/upload-artifact@main
       with:
         name: 今日环球
-        path: newsdownloader/target.mp4
+        path: newsdownloader/targets/*.mp4
 
-    - name: Upload to WeTransfer
-      id: wetransfer
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress newsdownloader/target.mp4 2>&1 | tee wetransfer.log
-        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
-        
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
