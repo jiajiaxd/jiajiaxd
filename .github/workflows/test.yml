@@ -23,7 +23,7 @@ jobs:
     
     - name: 测试
       run: |
-        echo "name=123::456" >> $GITHUB_OUTPUT
+        echo "::debug::Set the Octocat variable"
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
