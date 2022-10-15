@@ -23,11 +23,11 @@ jobs:
     
     - name: 测试
       run: |
-          echo '::set-output name=action_echo::disabled'
+          echo 'name=action_echo::disabled' >> $GITHUB_OUTPUT
           echo '::echo::on'
-          echo '::set-output name=action_echo::enabled'
+          echo 'name=action_echo::enabled' >> $GITHUB_OUTPUT
           echo '::echo::off'
-          echo '::set-output name=action_echo::disabled'
+          echo 'name=action_echo::disabled' >> $GITHUB_OUTPUT
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
