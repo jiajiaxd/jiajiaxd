@@ -25,6 +25,7 @@ jobs:
       run: |
         echo "::debug::Set the Octocat variable"
         echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+        echo "::set-output name=名字::内容"
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
