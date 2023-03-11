@@ -1,0 +1,30 @@
+name: create-files
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    
+    steps:
+      - name: create win.txt
+        run: echo "This is win.txt" > win.txt
+        if: matrix.os == 'windows-latest'
+      - name: create linux.txt
+        run: echo "This is linux.txt" > linux.txt
+        if: matrix.os == 'ubuntu-latest'
+      - name: Archive files
+        uses: montudor/action-zip@v1.1.1
+        with:
+          files: |
+            win.txt
+            linux.txt
+        id: zip
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: ${{ steps.zip.outputs.zip-file }}
