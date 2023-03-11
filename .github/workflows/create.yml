@@ -17,7 +17,7 @@ jobs:
         run: echo "This is linux.txt" > linux.txt
         if: matrix.os == 'ubuntu-latest'
       - name: Archive files
-        uses: montudor/action-zip@v1.1.1
+        uses: montudor/action-zip@latest
         with:
           files: |
             win.txt
