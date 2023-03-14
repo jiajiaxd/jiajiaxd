@@ -1,4 +1,4 @@
-name: test
+name: create-files
 
 on: [push]
 
@@ -27,12 +27,12 @@ jobs:
         
 
       
-    Upload:
-      runs-on: ubuntu-20.04
-      steps:
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: my-artifact
-          path: dist
+  Upload:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: dist
 
